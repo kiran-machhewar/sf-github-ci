@@ -2,21 +2,21 @@
 Salesforce continuous integration using github version control system and heroku as deployment system.
 
 ##Getting Started
-
 In order to use this you would need following things:  
   1. Github public repo which has Salesforce code in src folder along with package.xml. Make sure that code is deployable.  
   2. You would need one Heroku Account where this application would be hosted for Continuos integration.  
   3. GMAIL Account from which mails would be deployment notification would be triggered.  
 
-Please follow below steps to configure this application for continuos integration:  
+###Please follow below steps to configure this application for continuos integration:  
   1.Get the ZIP URL of the github repo.  
-    Go to the your repository.  
+    1. Go to the your repository.  
       You should be able to see "Clone or Download" button. Click on it and then right click on the "Download ZIP" link and copy link address.  
-    It should be as below for my SFChangeSet-Heroku application.  
+    2. It should be as below for my SFChangeSet-Heroku application.  
       https://github.com/kiran-machhewar/SFChangeSet-Heroku/archive/master.zip  
       Keep this ZIP DOWNLOAD URL which we need to configure as envrionment variable for heroku.  
   2.Click on below link to deploy this application in your heroku account.  
-    <a href="https://www.heroku.com/deploy/?template=https://github.com/kiran-machhewar/sf-github-ci"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+    <a href="https://www.heroku.com/deploy/?template=https://github.com/kiran-machhewar/sf-github-ci">
+      <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
     </a>
   3.Now once the application is installed configure below environment/config variables in your created heroku application.  
     A. Logon to your heroku account where application is installed.  
@@ -34,7 +34,6 @@ Please follow below steps to configure this application for continuos integratio
     c. Update the push address as <your-heroku-app-main-address>/GitHubWebhookListener  
       eg. https://sf-github-ci.herokuapp.com/GitHubWebhookListener  
     d. Update the setting to only listen for "Just the push event".  
-
 ```
 Note : Because of GMAIL strict security you might not get email notification so in order to get emails you need to lessen the security below performing below two steps  
   1.Turning on the access for less secure apps from below url:  
