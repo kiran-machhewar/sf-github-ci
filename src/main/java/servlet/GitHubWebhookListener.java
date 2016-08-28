@@ -1,7 +1,9 @@
 package servlet;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -16,6 +18,9 @@ import com.sforce.ws.ConnectionException;
 import util.DeploymentUtil;
 import util.MetadataLoginUtil;
 import util.FileUtil;
+import util.MailUtil;
+
+
 
 
 @WebServlet(
@@ -38,7 +43,16 @@ public class GitHubWebhookListener extends HttpServlet {
     
 	private void handleRequest(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException{
-		try {
+		try {	
+			
+			// Create a stream to hold the output
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			PrintStream ps = new PrintStream(baos);
+			// IMPORTANT: Save the old System.out!
+			PrintStream old = System.out;
+			// Tell Java to use your special stream
+			System.setOut(ps);
+			
 			ServletOutputStream out = resp.getOutputStream();
 	        out.write(("GitHubWebhookListener POST is ready\n ").getBytes());
 	        DeployOptions deployOptions = new DeployOptions();
@@ -50,11 +64,16 @@ public class GitHubWebhookListener extends HttpServlet {
 				targetConnection = MetadataLoginUtil.getMetadataConnection(System.getenv("SF_USERNAME"), System.getenv("SF_PASSWORD"), System.getenv("ORG_TYPE"));
 	        DeploymentUtil deploymentUtil = new DeploymentUtil();
 	        byte []zipData = FileUtil.downloadFile(System.getenv("SOURCE_CODE_DOWNLOAD_PATH"));
-	        FileUtil.createFileFromByteArray(zipData,new File("Download.zip"));
+	        System.out.println("Code is downloaded.");
 	        zipData = FileUtil.processZipToKeepSrcFolderOnly(zipData);
-	        FileUtil.createFileFromByteArray(zipData,new File("Clean.zip"));
+	        System.out.println("Non required files are removed.");
 	        deploymentUtil.deployFromZipByteArrayData(zipData, deployOptions, targetConnection);
-	        out.write(("Deployment is done. Please check the target org for status.").getBytes());
+	        String output = baos.toString();
+	        out.write(output.getBytes());
+	        System.setOut(old);
+	        MailUtil mailUtil = new MailUtil(System.getenv("GMAIL_USERNAME"), System.getenv("GMAIL_PASSWORD"));
+			String[] to = { System.getenv("SF_ADMIN_EMAIL_ADDRESS")}; // list of recipient email addresses
+			mailUtil.sendFromGMail(to,"SfGitHubCI Deployment Status",output);
 	        out.flush();
 	        out.close();	        
 		} catch (Exception e) {
