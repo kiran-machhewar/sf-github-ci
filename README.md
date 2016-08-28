@@ -1,3 +1,4 @@
+<<<<<<< .mine
 # JavaWebAppTemplateHeroku
 
 This template could be used to create webservices which are hosted on heroku.
@@ -68,3 +69,75 @@ E.g:
     <version>1.0</version>
 </dependency>
 ```
+=======
+# sf-github-ci
+Salesforce continuous integration using github version control system and heroku as deployment system.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> .theirs
