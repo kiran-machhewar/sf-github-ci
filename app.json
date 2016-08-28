@@ -1,8 +1,8 @@
 {
-  "name": "JavaWebAppTemplateHeroku",
-  "description": "JavaWebAppTemplateHeroku as a template for any webapp java project.",
-  "repository": "https://github.com/kiran-machhewar/JavaWebAppTemplateHeroku.git",
-  "logo": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Tomcat-logo.svg",
+  "name": "SfGithubCI",
+  "description": "Project by Kiran Machhewar for Continuous integration using Github and Heroku.",
+  "repository": "https://github.com/kiran-machhewar/sf-github-ci.git",
+  "logo": "https://assets-cdn.github.com/images/modules/logos_page/Octocat.png",
   "keywords": [
     "java",
     "tomcat"
