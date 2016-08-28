@@ -20,21 +20,21 @@ In order to use this you would need following things:
       <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
     </a>
   - **Now once the application is installed configure below environment/config variables in your created heroku application.**  
-    A. Logon to your heroku account where application is installed.  
-    B. Navigate to your application and click on settings. There you should be able to "Reveal Config Vars" button click on it and configure below variables.  
-      a. ORG_TYPE : Allowed values are Production or Sandbox  
-      a. SF_USERNAME : Value would be the org where you want to deploy code.  
-      b. SF_PASSWORD : Password of the org.  
-      c. GMAIL_USERNAME : GMAIL username from where the notifications mails would be initiated. Please make sure not to give any .gmail suffix.  
-      d. GMAIL_PASSWORD : Password for gmail account.  
-      e. SF_ADMIN_EMAIL_ADDRESS : Email address of the admin of salesforce org whom deployment notification would be sent.  
-      f. SOURCE_CODE_DOWNLOAD_PATH : URL which has been catpured in step 1.
+    1. Logon to your heroku account where application is installed.  
+    2. Navigate to your application and click on settings. There you should be able to "Reveal Config Vars" button click on it and configure below variables.  
+      *ORG_TYPE : Allowed values are Production or Sandbox  
+      *SF_USERNAME : Value would be the org where you want to deploy code.  
+      *SF_PASSWORD : Password of the org.  
+      *GMAIL_USERNAME : GMAIL username from where the notifications mails would be initiated. Please make sure not to give any .gmail suffix.  
+      *GMAIL_PASSWORD : Password for gmail account.  
+      *SF_ADMIN_EMAIL_ADDRESS : Email address of the admin of salesforce org whom deployment notification would be sent.  
+      *SOURCE_CODE_DOWNLOAD_PATH : URL which has been catpured in step 1.
   - **Configure github webhooks:**  
-    a. Go to the settings of your github repository.  
-    b. Click on Webhooks & Services.    
-    c. Update the push address as <your-heroku-app-main-address>/GitHubWebhookListener  
+    1. Go to the settings of your github repository.  
+    2. Click on Webhooks & Services.    
+    3. Update the push address as <your-heroku-app-main-address>/GitHubWebhookListener  
       eg. https://sf-github-ci.herokuapp.com/GitHubWebhookListener  
-    d. Update the setting to only listen for "Just the push event". 
+    4. Update the setting to only listen for "Just the push event". 
     
 ```
 Note : Because of GMAIL strict security you might not get email notification so in order to get emails you need to lessen the security below performing below two steps  
