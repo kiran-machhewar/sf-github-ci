@@ -22,13 +22,13 @@ In order to use this you would need following things:
   - **Now once the application is installed configure below environment/config variables in your created heroku application.**  
     1. Logon to your heroku account where application is installed.  
     2. Navigate to your application and click on settings. There you should be able to "Reveal Config Vars" button click on it and configure below variables.  
-      *ORG_TYPE : Allowed values are Production or Sandbox  
-      *SF_USERNAME : Value would be the org where you want to deploy code.  
-      *SF_PASSWORD : Password of the org.  
-      *GMAIL_USERNAME : GMAIL username from where the notifications mails would be initiated. Please make sure not to give any .gmail suffix.  
-      *GMAIL_PASSWORD : Password for gmail account.  
-      *SF_ADMIN_EMAIL_ADDRESS : Email address of the admin of salesforce org whom deployment notification would be sent.  
-      *SOURCE_CODE_DOWNLOAD_PATH : URL which has been catpured in step 1.
+      *  ORG_TYPE : Allowed values are Production or Sandbox  
+      *  SF_USERNAME : Value would be the org where you want to deploy code.  
+      *  SF_PASSWORD : Password of the org.  
+      *  GMAIL_USERNAME : GMAIL username from where the notifications mails would be initiated. Please make sure not to give any .gmail suffix.  
+      *  GMAIL_PASSWORD : Password for gmail account.  
+      *  SF_ADMIN_EMAIL_ADDRESS : Email address of the admin of salesforce org whom deployment notification would be sent.  
+      *  SOURCE_CODE_DOWNLOAD_PATH : URL which has been catpured in step 1.
   - **Configure github webhooks:**  
     1. Go to the settings of your github repository.  
     2. Click on Webhooks & Services.    
